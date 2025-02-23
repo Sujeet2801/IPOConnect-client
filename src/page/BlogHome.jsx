@@ -72,7 +72,8 @@ function BlogHome() {
         {Array.from({ length: totalPages }, (_, i) => (
           <button
             key={i}
-            className={`mx-1 px-4 py-2 border rounded-md ${currentPage === i + 1 ? "bg-blue-500 text-white" : "bg-gray-200"}`}
+            className={`mx-1 px-4 py-2 border rounded-md 
+                ${currentPage === i + 1 ? "bg-blue-500 text-white" : "bg-gray-200"}`}
             onClick={() => setCurrentPage(i + 1)}
           >
             {i + 1}

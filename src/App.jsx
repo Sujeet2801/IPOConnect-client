@@ -4,7 +4,7 @@ import FooterMain from "./components/footer/FooterMain"
 import HeaderMain from "./components/header/HeaderMain"
 import Home from "./components/home/Home"
 import BlogHome from "./page/BlogHome"
-
+import Sector from "./page/sector/Sector"
 
 function App() {
 
@@ -14,9 +14,9 @@ function App() {
       {/* <Home/> */}
       {/* <CarrerMain/> */}
       {/* <ContactMain/> */}
-      <BlogHome/>
+      {/* <BlogHome/> */}
+      <Sector/>
       {/* <FooterMain/> */}
-
     </div>
   )
 }
