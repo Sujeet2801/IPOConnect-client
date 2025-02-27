@@ -2,7 +2,7 @@ import React from 'react'
 
 function Ad() {
     return (
-      <div className="flex flex-col bg-white max-w-[750px] mx-auto gap-5 p-4 border rounded-lg shadow-md mb-10">
+      <div className="flex flex-col bg-white max-w-[750px] mx-auto gap-5 p-4 border rounded-lg shadow-md mb-10 bg-gradient-to-b from-blue-400 to-white">
         <p className="text-xl text-center font-bold">IPOConnect</p>
         <p className="text-2xl text-center font-bold">Applying for this IPO?</p>
         <p className=' opacity-70'>

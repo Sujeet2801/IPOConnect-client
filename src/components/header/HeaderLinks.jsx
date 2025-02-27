@@ -10,6 +10,12 @@ function HeaderLinks() {
 
       <li 
         className="md:hover:scale-110 hover:text-blue-500"
+        onClick={() => navigate("/home")}
+      >
+        Home
+      </li>
+      <li 
+        className="md:hover:scale-110 hover:text-blue-500"
         onClick={() => navigate("/blog")}
       >
         Blog

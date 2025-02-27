@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { CgMenuGridO } from "react-icons/cg";
 import HeaderLogin from "./HeaderLogin";
 import HeaderLinks from "./HeaderLinks"; 
+import HeaderLogo from "./HeaderLogo"; 
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,9 +16,11 @@ function Header() {
   };
 
   return (
-    <div className="flex justify-between items-center px-10 p-4 bg-white shadow-md">
+    <div className="flex justify-between md:justify-between items-center 
+    px-10 p-4 bg-white shadow-md">
+
       {/* Logo */}
-      <div className="text-xl font-bold">IPOConnect</div>
+      <HeaderLogo/>
 
       {/* Desktop Links */}
       <div className="hidden md:flex gap-6">

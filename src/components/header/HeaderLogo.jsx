@@ -1,8 +1,13 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
+
 
 function HeaderLogo() {
+
+  const nav = useNavigate()
   return (
-    <div className=' text-xl font-bold'>IPOConnect</div>
+    <button className=' text-xl font-bold cursor-pointer'
+    onClick={() => nav("/")}>IPOConnect</button>
   )
 }
 
