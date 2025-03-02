@@ -11,7 +11,7 @@ function NewListed() {
             {/* Top */}
             <div className=''>
                 <div className='flex justify-between mt-2'>
-                    <h1 className=' text-xl'>Upcoming</h1>
+                    <h1 className=' text-xl'>Newlisted IPO</h1>
 
                     <div className='flex items-center'>
                         <button className='bg-blue-600 text-white px-2 py-1 rounded-md'>View All</button>

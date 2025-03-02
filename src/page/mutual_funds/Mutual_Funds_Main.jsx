@@ -4,10 +4,9 @@ import Mutual_Funds_Bottom from './Mutual_Funds_Bottom'
 
 function Mutual_Funds_Main() {
   return (
-    <div className=' bg-white'>
+    <div className=' bg-white mt-12'>
       <Mutual_Funds_Top/>
-      {/* <Mutual_Funds_Bottom/> */}
-
+      <Mutual_Funds_Bottom/>
     </div>
   )
 }

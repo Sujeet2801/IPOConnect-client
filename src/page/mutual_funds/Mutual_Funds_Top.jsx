@@ -2,9 +2,9 @@ import React from 'react'
 
 function Mutual_Funds_Top() {
     return (
-        <div className='flex justify-around pt-8'>
+        <div className='flex justify-around pt-8 pb-16 bg-gray-400'>
             <div className='w-[600px]'>
-                <h1 className=' text-3xl'>Large Cap Mutual Funds</h1>
+                <h1 className=' text-3xl mb-3'>Large Cap Mutual Funds</h1>
                 <p>Large Cap funds invest in stocks of the top 100 companies in terms of
                     full market capitalization. They invest at least 80% of their
                     assets in large cap companies. These funds are relatively less riskier
