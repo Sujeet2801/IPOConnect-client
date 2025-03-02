@@ -1,25 +1,29 @@
 import React from 'react'
 import { DiGithubFull } from "react-icons/di";
+import { useNavigate } from 'react-router-dom';
 
 const IPODetails = {
     heading: "Nova Agritech Ltd.",
 }
 
 function NewListed() {
+    const nav = useNavigate()
+
   return (
-    <div>
+    <div className='bg-purple-200 px-5 py-5'>
             {/* Top */}
             <div className=''>
                 <div className='flex justify-between mt-2'>
                     <h1 className=' text-xl'>Newlisted IPO</h1>
 
                     <div className='flex items-center'>
-                        <button className='bg-blue-600 text-white px-2 py-1 rounded-md'>View All</button>
+                        <button className='bg-blue-500 text-white px-2 py-1 rounded-md
+                        hover:bg-blue-600'>View All</button>
                     </div>
 
                 </div>
-                <p className=' opacity-70 '>Companies that have filed for an IPO with SEBI. Few details might be
-                    disclosed by the companies later on.
+                <p className=' opacity-70 '>Companies that have filed for an IPO with SEBI. 
+                    Few details might be disclosed by the companies later on.
                 </p>
 
             </div>

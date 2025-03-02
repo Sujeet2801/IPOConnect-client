@@ -18,10 +18,10 @@ function App() {
       <div className="bg-gray-100">
         <HeaderMain />
         <Routes>
-          <Route path="/" element={<Mutual_Funds_Main />} />
+          <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/blog" element={<BlogHome />} />
-          <Route path="/sharkinvestor" element={<All_Shark_Investor />} />
+          <Route path="/shark-investor" element={<All_Shark_Investor />} />
           <Route path="/brokers" element={<All_Brokers />} />
           <Route path="/upcoming" element={<Upcoming_IPOs_Page />} />
           <Route path="/Ongoing" element={<Ongoing_IPOs_Page />} />

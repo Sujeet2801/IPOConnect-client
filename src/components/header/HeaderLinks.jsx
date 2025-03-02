@@ -1,25 +1,33 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const navData = ["Home", "Blog", "Sector", "Shark Investor", "Brokers"];
 
 function HeaderLinks() {
   const navigate = useNavigate();
+  const location = useLocation();
 
   return (
-    <ul className="flex flex-col md:flex-row opacity-80 
-    cursor-pointer gap-4 md:gap-8 mt-1">
-      {navData.map((navlink, index) => {
-        return (
-          <li key={index}
-            onClick={() => navigate(`/${navlink.toLowerCase()}`)} 
-            className="hover:text-blue-500 transition duration-300"
-          >
-            {navlink}
-          </li>
-        );
-      })}
-    </ul>
+    <nav>
+      <ul className="flex flex-col md:flex-row opacity-80 cursor-pointer gap-4 md:gap-8 mt-1">
+        {navData.map((navlink, index) => {
+          const path = `/${navlink.toLowerCase().replace(/\s+/g, "-")}`;
+          const isActive = location.pathname === path;
+
+          return (
+            <li
+              key={index}
+              onClick={() => navigate(path)}
+              className={`hover:text-blue-500 transition duration-300 ${
+                isActive ? "text-blue-500 font-semibold" : ""
+              }`}
+            >
+              {navlink}
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
   );
 }
 
