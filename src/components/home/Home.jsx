@@ -5,7 +5,6 @@ import Ongoing from './Ongoing'
 import IPONewsAnalysis from './IPONewsAnalysis'
 import FAQ from './FAQ'
 import Ad from './Ad'
-import Banner from "/images/ipo_image.png"
 
 function Home() {
   return (
@@ -13,7 +12,7 @@ function Home() {
       <UpcomingIPO />
       <div className='flex flex-col md:flex-row gap-5'>
         <Ad />
-        <img src={Banner} alt="" className='h-[265px] w-[500px] rounded-lg' />
+        <img src="/images/ipo_image.png" alt="" className='h-[265px] w-[500px] rounded-lg' />
       </div>
       <Ongoing />
       {/* <Newlisted/> */}
