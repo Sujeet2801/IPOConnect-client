@@ -1,150 +1,21 @@
 import React, { useState } from "react";
 import IPOCard from "../../components/ipo/IPOCard";
+import { ongoingIPOData } from "../../data/data.js";
 
 const itemsPerPage = 12;
-
-const IPOData = [
-  {
-    heading: "Nova Agritech Ltd.",
-    priceBand: "Rs 39-40",
-    openDate: "2024-01-22",
-    closeDate: "2024-01-24",
-    issueSize: "143.81 Cr.",
-    issueType: "Book Built",
-    listingDate: "2024-01-30",
-  },
-  {
-    heading: "XYZ Technologies",
-    priceBand: "Rs 50-55",
-    openDate: "2024-02-10",
-    closeDate: "2024-02-15",
-    issueSize: "200.50 Cr.",
-    issueType: "Fixed Price",
-    listingDate: "2024-02-22",
-  },
-  {
-    heading: "ABC Corp",
-    priceBand: "Rs 100-110",
-    openDate: "2024-03-05",
-    closeDate: "2024-03-10",
-    issueSize: "500.75 Cr.",
-    issueType: "Book Built",
-    listingDate: "2024-03-18",
-  },
-  {
-    heading: "ABC Corp",
-    priceBand: "Rs 100-110",
-    openDate: "2024-03-05",
-    closeDate: "2024-03-10",
-    issueSize: "500.75 Cr.",
-    issueType: "Book Built",
-    listingDate: "2024-03-18",
-  },
-  {
-    heading: "ABC Corp",
-    priceBand: "Rs 100-110",
-    openDate: "2024-03-05",
-    closeDate: "2024-03-10",
-    issueSize: "500.75 Cr.",
-    issueType: "Book Built",
-    listingDate: "2024-03-18",
-  },
-  {
-    heading: "ABC Corp",
-    priceBand: "Rs 100-110",
-    openDate: "2024-03-05",
-    closeDate: "2024-03-10",
-    issueSize: "500.75 Cr.",
-    issueType: "Book Built",
-    listingDate: "2024-03-18",
-  },
-  {
-    heading: "ABC Corp",
-    priceBand: "Rs 100-110",
-    openDate: "2024-03-05",
-    closeDate: "2024-03-10",
-    issueSize: "500.75 Cr.",
-    issueType: "Book Built",
-    listingDate: "2024-03-18",
-  },
-  {
-    heading: "ABC Corp",
-    priceBand: "Rs 100-110",
-    openDate: "2024-03-05",
-    closeDate: "2024-03-10",
-    issueSize: "500.75 Cr.",
-    issueType: "Book Built",
-    listingDate: "2024-03-18",
-  },
-  {
-    heading: "ABC Corp",
-    priceBand: "Rs 100-110",
-    openDate: "2024-03-05",
-    closeDate: "2024-03-10",
-    issueSize: "500.75 Cr.",
-    issueType: "Book Built",
-    listingDate: "2024-03-18",
-  },
-  {
-    heading: "ABC Corp",
-    priceBand: "Rs 100-110",
-    openDate: "2024-03-05",
-    closeDate: "2024-03-10",
-    issueSize: "500.75 Cr.",
-    issueType: "Book Built",
-    listingDate: "2024-03-18",
-  },
-  {
-    heading: "ABC Corp",
-    priceBand: "Rs 100-110",
-    openDate: "2024-03-05",
-    closeDate: "2024-03-10",
-    issueSize: "500.75 Cr.",
-    issueType: "Book Built",
-    listingDate: "2024-03-18",
-  },
-  {
-    heading: "ABC Corp",
-    priceBand: "Rs 100-110",
-    openDate: "2024-03-05",
-    closeDate: "2024-03-10",
-    issueSize: "500.75 Cr.",
-    issueType: "Book Built",
-    listingDate: "2024-03-18",
-  },
-  {
-    heading: "ABC Corp",
-    priceBand: "Rs 100-110",
-    openDate: "2024-03-05",
-    closeDate: "2024-03-10",
-    issueSize: "500.75 Cr.",
-    issueType: "Book Built",
-    listingDate: "2024-03-18",
-  },
-  {
-    heading: "ABC Corp",
-    priceBand: "Rs 100-110",
-    openDate: "2024-03-05",
-    closeDate: "2024-03-10",
-    issueSize: "500.75 Cr.",
-    issueType: "Book Built",
-    listingDate: "2024-03-18",
-  },
-];
 
 function Ongoing_IPOs_Page() {
 
   const [currentPage, setCurrentPage] = useState(1);
 
-  const totalPages = Math.ceil(IPOData.length / itemsPerPage)
+  const totalPages = Math.ceil(ongoingIPOData.length / itemsPerPage)
 
   const startIndex = (currentPage - 1) * itemsPerPage
 
-  const currentItems = IPOData.slice(startIndex, startIndex + itemsPerPage)
+  const currentItems = ongoingIPOData.slice(startIndex, startIndex + itemsPerPage)
 
   return (
-    <div className="p-6 rounded-lg shadow-lg mx-16
-    border border-black border-5 mt-8">
+    <div className="p-6 rounded-lg shadow-lg mx-16 border border-black border-5 mt-4">
 
       <div>
         <img src="" alt="" />
@@ -152,8 +23,8 @@ function Ongoing_IPOs_Page() {
       {/* Header Section */}
       <div className="flex items-center mx-auto">
         
-        <h1 className=" text-3xl font-bold text-center 
-        mx-auto text-gray-700">Ongoing IPOs</h1>
+        <h1 className=" text-3xl font-bold mx-auto
+        bg-gradient-to-r from-blue-500 via-pink-500 to-blue-500 text-transparent bg-clip-text cursor-pointer hover:scale-105 transition-transform duration-300">Ongoing IPOs</h1>
       </div>
 
       {/* IPO Cards Section */}

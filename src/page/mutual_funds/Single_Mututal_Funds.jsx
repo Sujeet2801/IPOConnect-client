@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from "../.././images/ipo_image.png";
+import Image from "../../../public/images/ipo_image.png";
 
 function Single_Mututal_Funds({ image, companyName, aum, expense, cagr, performance, risk, composition }) {
   return (

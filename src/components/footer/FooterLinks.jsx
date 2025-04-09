@@ -1,38 +1,23 @@
 import React from 'react';
+import { footerData } from '../../data/data.js';
 
 function FooterLinks() {
-  const sections = [
-    {
-      title: 'Resources',
-      links: ['Trading View', 'NSE Holidays', 'e-Voting CDSL', 'e-Voting NSDL', 'Market Timings'],
-    },
-    {
-      title: 'Support',
-      links: ['Help Center', 'FAQs', 'Contact Us', 'Live Chat', 'Report an Issue'],
-    },
-    {
-      title: 'Company',
-      links: ['About Us', 'Careers', 'Press', 'Investor Relations', 'Blog'],
-    },
-    {
-      title: 'Legal',
-      links: ['Terms of Service', 'Privacy Policy', 'Security', 'Compliance', 'Disclaimers'],
-    },
-    {
-      title: 'Social',
-      links: ['Facebook', 'Twitter', 'LinkedIn', 'Instagram', 'YouTube'],
-    },
-  ];
-
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 px-10 py-6">
-      {sections.map((section, index) => (
+      {footerData.map((section, index) => (
         <div key={index}>
           <p className="font-semibold text-lg">{section.title}</p>
           <ul className="mt-2 space-y-1">
-            {section.links.map((link, linkIndex) => (
-              <li key={linkIndex} className="text-gray-600 hover:text-gray-800 cursor-pointer">
-                {link}
+            {section.heading.map((heading, linkIndex) => (
+              <li key={linkIndex}>
+                <a
+                  href={section.links[linkIndex] || '#'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-500 hover:underline"
+                >
+                  {heading}
+                </a>
               </li>
             ))}
           </ul>

@@ -1,22 +1,44 @@
-import React from 'react'
+import { FiGithub, FiLinkedin, FiFacebook, FiInstagram, } from "react-icons/fi";
+import { MdOutlineMailOutline } from "react-icons/md";
+import { BiBriefcase } from "react-icons/bi";
 import { FaXTwitter } from "react-icons/fa6";
-import { FiGithub } from "react-icons/fi";
+import { SiHashnode } from "react-icons/si";
 
-function FooterLeft() {
+function SocialLinks() {
   return (
-    <div className='flex flex-col gap-16'>
-        <div className='flex gap-3'>
-          <FaXTwitter />  
-          <FiGithub />
-          <FiGithub />
-          <FiGithub />
-          <FiGithub />
-        </div>
-
-        <div className=' text-xl font-bold'>IPO Connect </div>
-        <div className=' text-xl text-red-600'>#startupindia </div>
+    <div className="flex flex-col gap-10">
+      <div className="flex gap-3 text-2xl text-gray-700">
+        <FiGithub
+          className="hover:text-blue-600 cursor-pointer"
+          onClick={() => window.open("https://github.com/Sujeet2801/IPO-Connect", "_blank")}
+        />
+        <FiLinkedin
+          className="hover:text-blue-600 cursor-pointer"
+          onClick={() => window.open("https://www.linkedin.com/in/sujeet-kumar-gupta-23b7b6237/", "_blank")}
+        />
+        <FaXTwitter
+          className="hover:text-blue-600 cursor-pointer"
+          onClick={() => window.open("https://twitter.com/", "_blank")}
+        />
+        <MdOutlineMailOutline
+          className="hover:text-blue-600 cursor-pointer"
+          onClick={() => window.open("mailto:sujeetgupta2801@gmail.com", "_blank")}
+        />
+        <BiBriefcase
+          className="hover:text-blue-600 cursor-pointer"
+          onClick={() => window.open("https://portfolio-website-delta-liard-74.vercel.app/", "_blank")}
+        />
+        {/* <SiHashnode
+          className="hover:text-blue-600 cursor-pointer"
+          onClick={() => window.open("https://instagram.com/", "_blank")}
+        /> */}
+      </div>
+      <p className="text-2xl font-extrabold bg-gradient-to-r from-blue-500 via-pink-500 
+      to-blue-50 text-transparent bg-clip-text cursor-pointer hover:scale-105 
+      transition-transform duration-300">IPOConnect
+      </p>
     </div>
-  )
+  );
 }
 
-export default FooterLeft
+export default SocialLinks;
