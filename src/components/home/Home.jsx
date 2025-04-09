@@ -1,7 +1,7 @@
 import React from 'react'
 import UpcomingIPO from './UpcomingIPO'
 import Ongoing from './Ongoing'
-import Newlisted from './NewListed'
+// import Newlisted from './NewListed'
 import IPONewsAnalysis from './IPONewsAnalysis'
 import FAQ from './FAQ'
 import Ad from './Ad'
@@ -16,7 +16,7 @@ function Home() {
         <img src={Banner} alt="" className='h-[265px] w-[500px] rounded-lg' />
       </div>
       <Ongoing />
-      <Newlisted/>
+      {/* <Newlisted/> */}
       <IPONewsAnalysis />
       <FAQ />
     </div>
