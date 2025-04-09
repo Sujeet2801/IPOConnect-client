@@ -5,7 +5,7 @@ import Ongoing from './Ongoing'
 import IPONewsAnalysis from './IPONewsAnalysis'
 import FAQ from './FAQ'
 import Ad from './Ad'
-import Banner from "../../../public/images/ipo_image.png"
+import Banner from "/images/ipo_image.png"
 
 function Home() {
   return (
