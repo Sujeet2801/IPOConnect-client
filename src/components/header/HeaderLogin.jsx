@@ -1,85 +1,84 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function HeaderLogin({ isSignUp, closeAuth }) {
+function HeaderLogin() {
+  const [showSignupForm, setShowSignupForm] = useState(false);
+  const nav = useNavigate();
 
-  // Close modal when clicking outside
-  useEffect(() => {
-    const handleOutsideClick = (event) => {
-      if (event.target.id === "auth-modal") closeAuth();
-    };
-    window.addEventListener("click", handleOutsideClick);
-    return () => window.removeEventListener("click", handleOutsideClick);
-  }, [closeAuth]);
+  const handle = () => {
+    setShowSignupForm(true);
+    nav("/v1/api/users/register");
+  };
+
+  const handleClose = () => {
+    setShowSignupForm(false);
+    nav("/v1/api/users/login");
+  };
 
   return (
-    <div id="auth-modal" className="fixed inset-0 bg-black bg-opacity-60 
-          flex justify-center items-center z-50 backdrop-blur-sm">
+    <div className="flex mt-8 mb-8 mx-auto w-[700px] rounded-3xl overflow-hidden shadow-2xl border border-gray-300 bg-gradient-to-r from-sky-100 via-purple-100 to-pink-100 font-sans">
+      
+      {/* Left Panel */}
+      <div className="w-1/3 bg-gradient-to-b from-purple-600 to-purple-800 text-white flex flex-col items-center justify-center px-6 py-12">
+        <h2 className="text-2xl font-bold mb-4">
+          {showSignupForm ? "Welcome!" : "Welcome Back!"}
+        </h2>
+        <p className="text-center text-base font-light leading-relaxed">
+          {showSignupForm
+            ? "Create an account to get started."
+            : "Sign in to access your account."}
+        </p>
+      </div>
 
-      <div className="relative w-[900px] bg-purple-500 
-      shadow-2xl rounded-lg h-[500px] flex overflow-hidden border border-blue-100">
-
-        {/* Left Side */}
-        <div className="w-1/3 backdrop-blur-md flex flex-col justify-center 
-              items-center p-6 rounded-l-lg shadow-md">
-
-          <h2 className="text-xl font-semibold text-white drop-shadow-lg mb-4">
-            {isSignUp ? "Welcome Back!" : "New Here?"}
-          </h2>
-          <p className="text-sm text-white/80 mb-6 text-center px-4">
-            {isSignUp ? "Already have an account?" : "Create an account to get started."}
-          </p>
-          <button
-            onClick={closeAuth}
-            className="px-5 py-2 bg-white/30 text-white font-medium 
-            rounded-md hover:bg-white/40 transition duration-300"
-          >
-            {isSignUp ? "Sign In" : "Sign Up"}
-          </button>
-        </div>
-
-        {/* Right Side */}
-        <div className="w-2/3 p-10 bg-white rounded-r-lg shadow-inner">
-          <h2 className="text-3xl font-extrabold text-gray-800 mb-6">
-            {isSignUp ? "Sign Up" : "Sign In"}
-          </h2>
-
-          <form className="space-y-5">
-            {isSignUp && (
-              <div>
-                <label className="block text-gray-600 font-medium">Full Name</label>
-                <input type="text" className="w-full border border-gray-300 
-                rounded-md p-3 focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Enter full name" />
-              </div>
-            )}
-
-            <div>
-              <label className="block text-gray-600 font-medium">Email</label>
-              <input type="email" className="w-full border border-gray-300 
-              rounded-md p-3 focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Enter email" />
+      {/* Right Panel */}
+      <div className="w-2/3 bg-white px-10 py-12 flex flex-col justify-center">
+        {showSignupForm ? (
+          <div className="flex flex-col gap-4">
+            <input
+              type="text"
+              placeholder="Enter full name"
+              className="input-style"
+            />
+            <input
+              type="email"
+              placeholder="Enter email"
+              className="input-style"
+            />
+            <input
+              type="password"
+              placeholder="Create password"
+              className="input-style"
+            />
+            <input
+              type="text"
+              placeholder="Enter mobile number"
+              className="input-style"
+            />
+            <div className="flex gap-4 mt-6">
+              <button className="btn-gradient w-1/2">Register</button>
+              <button className="btn-outline w-1/2" onClick={handleClose}>
+                Back to Login
+              </button>
             </div>
-
-            <div>
-              <label className="block text-gray-600 font-medium">Password</label>
-              <input type="password" className="w-full border border-gray-300 
-              rounded-md p-3 focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Enter password" />
-            </div>
-
-            {isSignUp && (
-              <div>
-                <label className="block text-gray-600 font-medium">Confirm Password</label>
-                <input type="password" className="w-full border border-gray-300 
-                rounded-md p-3 focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Confirm password" />
-              </div>
-            )}
-
-            <button className="w-full bg-blue-600 text-white py-3 rounded-md 
-            font-semibold text-lg shadow-lg hover:bg-blue-700 transition 
-            duration-300 transform hover:scale-105">
-              {isSignUp ? "Create Account" : "Sign In"}
+          </div>
+        ) : (
+          <div className="flex flex-col gap-6">
+            <input
+              type="email"
+              placeholder="Enter Email"
+              className="input-style"
+            />
+            <input
+              type="password"
+              placeholder="Enter Password"
+              className="input-style"
+            />
+            <button className="btn-gradient">Sign In</button>
+            <button className="btn-outline" onClick={handle}>
+              Create New Account
             </button>
-
-          </form>
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );
