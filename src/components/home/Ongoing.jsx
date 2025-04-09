@@ -2,7 +2,6 @@ import React from 'react';
 import { DiGithubFull } from "react-icons/di";
 import { useNavigate } from 'react-router-dom';
 
-
 const IPODetails = [
     {
       heading: "Nova Agritech Ltd.",
@@ -37,14 +36,14 @@ function Ongoing() {
 
     const nav = useNavigate()
     return (
-        <div className='bg-blue-300 px-5 py-5 rounded-md'>
+        <div className='bg-gradient-to-b from-blue-200 via-blue-300 to-blue-400 px-5 py-5 rounded-md'>
             
             <div className=''>
                 <div className='flex justify-between mb-5'>
                     <h1 className="text-2xl font-semibold">Ongoing IPOs</h1>
-                    <button className='bg-blue-500 text-white px-2 py-1 rounded-md
+                    <button className='bg-blue-500 text-white px-3 py-2 rounded-md
                     hover:bg-blue-600'
-                    onClick={()=> nav("/ongoing")}>
+                    onClick={()=> nav("/v1/api/users/ongoing")}>
                         View All
                     </button>
                 </div>

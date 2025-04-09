@@ -77,18 +77,19 @@ function UpcomingIPO() {
   const nav = useNavigate()
   
   return (
-    <div className="bg-blue-300 p-6 rounded-lg shadow-lg">
+    <div className="bg-gradient-to-b from-blue-200 via-blue-300 to-blue-400 
+    p-6 rounded-lg shadow-lg">
       
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-semibold">Upcoming IPOs</h1>
         <button className="bg-blue-500 text-white px-4 py-2 
         rounded-md hover:bg-blue-600 transition"
-        onClick={() => window.location.href = "/upcoming"}>
+        onClick={() => window.location.href = "/v1/api/users/upcoming"}>
           View All
         </button>
       </div>
 
-      <p className="text-gray-700 mt-3 text-sm">
+      <p className="text-gray-700 mt-2 text-sm">
         Companies that have filed for an IPO with SEBI. 
         Some details may be disclosed later.
       </p>
