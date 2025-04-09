@@ -84,7 +84,7 @@ function UpcomingIPO() {
         <h1 className="text-2xl font-semibold">Upcoming IPOs</h1>
         <button className="bg-blue-500 text-white px-4 py-2 
         rounded-md hover:bg-blue-600 transition"
-        onClick={() => window.location.href = "/v1/api/users/upcoming"}>
+        onClick={() => nav("/v1/api/users/upcoming")}>
           View All
         </button>
       </div>
