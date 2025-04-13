@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import IPOCard from "../../components/ipo/IPOCard";
-import { ongoingIPOData } from "../../data/data.js";
+import IPOCard from "../../utility/IPOCard.jsx";
+import { ongoingIPOData } from "../../constant/data.js";
 
 const itemsPerPage = 12;
 
@@ -22,7 +22,7 @@ function Ongoing_IPOs_Page() {
       </div>
       {/* Header Section */}
       <div className="flex items-center mx-auto">
-        
+
         <h1 className=" text-3xl font-bold mx-auto
         bg-gradient-to-r from-blue-500 via-pink-500 to-blue-500 text-transparent bg-clip-text cursor-pointer hover:scale-105 transition-transform duration-300">Ongoing IPOs</h1>
       </div>
