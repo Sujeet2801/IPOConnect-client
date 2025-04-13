@@ -14,7 +14,6 @@ function HeaderLinks() {
         {navData.map((navlink, index) => {
           const path = `/v1/api/users/${navlink.toLowerCase().replace(/\s+/g, "-")}`;
           const isActive = location.pathname === path;
-          console.log(location);
           
           return (
             <li
