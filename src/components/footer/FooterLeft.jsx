@@ -18,7 +18,7 @@ function SocialLinks() {
         />
         <FaXTwitter
           className="hover:text-blue-600 cursor-pointer"
-          onClick={() => window.open("https://twitter.com/", "_blank")}
+          onClick={() => window.open("https://x.com/Sujeetg2801", "_blank")}
         />
         <MdOutlineMailOutline
           className="hover:text-blue-600 cursor-pointer"
@@ -26,7 +26,7 @@ function SocialLinks() {
         />
         <BiBriefcase
           className="hover:text-blue-600 cursor-pointer"
-          onClick={() => window.open("https://portfolio-website-delta-liard-74.vercel.app/", "_blank")}
+          onClick={() => window.open("https://portfolio.sujeettech.com/", "_blank")}
         />
         {/* <SiHashnode
           className="hover:text-blue-600 cursor-pointer"
