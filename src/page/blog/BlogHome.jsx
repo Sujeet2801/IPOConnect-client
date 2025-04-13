@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { blogData } from "../../data/data.js";
+import { blogData } from "../../constant/data.js";
 
 const itemsPerPage = 9;
 
@@ -18,14 +18,14 @@ function BlogHome() {
   }, [blogData]);
 
   return (
-    <div className="mx-12 mt-10">
+    <div className="mx-12 mt-5">
       <div className=" text-3xl font-bold mx-auto text-center
         bg-gradient-to-r from-blue-500 via-pink-500 to-blue-500 text-transparent bg-clip-text cursor-pointer hover:scale-105 transition-transform duration-300">
-        Blog
+        Blogs
       </div>
 
       {/* Blog Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-5">
         {currentItems.map((item, index) => (
           <div
             key={index}
@@ -63,9 +63,8 @@ function BlogHome() {
         {Array.from({ length: totalPages }, (_, i) => (
           <button
             key={i}
-            className={`mx-1 px-4 py-2 border rounded-md ${
-              currentPage === i + 1 ? "bg-blue-500 text-white" : "bg-gray-200"
-            }`}
+            className={`mx-1 px-4 py-2 border rounded-md ${currentPage === i + 1 ? "bg-blue-500 text-white" : "bg-gray-200"
+              }`}
             onClick={() => setCurrentPage(i + 1)}
           >
             {i + 1}
