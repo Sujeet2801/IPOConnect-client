@@ -28,7 +28,7 @@ function Single_Brokers({
                     <div className="text-center">
                         <div className="flex items-center justify-center md:justify-start gap-1 text-gray-700">
                             <BiMessage />
-                            <p>{reviews}</p>
+                            <p>{reviews}L</p>
                         </div>
                         <p className="text-sm text-gray-600">Reviews</p>
                     </div>
