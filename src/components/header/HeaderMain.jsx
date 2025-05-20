@@ -1,12 +1,20 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { CgMenuGridO } from "react-icons/cg";
 import HeaderLinks from "./HeaderLinks"; 
 import HeaderLogo from "./HeaderLogo"; 
 import { useNavigate } from "react-router-dom";
+import { useAuth } from '../../hooks/useAuth';
+import Button from "../../utility/Button";
 
 function Header() {
+
   const [menuOpen, setMenuOpen] = useState(false);
   const nav = useNavigate()
+    const { user, logout } = useAuth();
+
+    const handleLogout = () => {
+        logout();
+    };
 
   return (
     <div className="flex justify-between md:justify-between items-center 
@@ -20,18 +28,6 @@ function Header() {
         <HeaderLinks />
       </div>
 
-      {/* Desktop Links */}
-      <div className="flex gap-6">
-        <button onClick={() => nav("/v1/api/users/login")} className="px-3 py-1 bg-blue-500 
-        text-white rounded-md hover:bg-blue-600">
-          Sign In
-        </button>
-        {/* <button onClick={() => openAuth(true)} className="px-3 py-1 bg-blue-500 
-        text-white rounded-md hover:bg-blue-700">
-          Sign Up
-        </button> */}
-      </div>
-
       {/* Mobile Dropdown Menu */}
       {menuOpen && (
         <div className="absolute top-16 left-0 w-full bg-white shadow-md 
@@ -40,12 +36,20 @@ function Header() {
         </div>
       )}
 
+      {user ? (
+        <Button className="text-md cursor-pointer" onClick={handleLogout}>
+            Logout
+        </Button>
+        ) : (
+        <Button className="text-md cursor-pointer" onClick={() => nav('/login')}>
+            Login
+        </Button>
+      )}
+
       {/* Mobile Menu Icon */}
       <div className="md:hidden">
         <CgMenuGridO className="text-3xl cursor-pointer" onClick={() => setMenuOpen(!menuOpen)} />
       </div>
-
-      {/* Auth Modal */}
   
     </div>
   );
