@@ -12,7 +12,7 @@ function HeaderLinks() {
       <ul className="flex flex-col md:flex-row opacity-80 cursor-pointer 
       gap-4 md:gap-8 mt-1 text-md">
         {navData.map((navlink, index) => {
-          const path = `/v1/api/users/${navlink.toLowerCase().replace(/\s+/g, "-")}`;
+          const path = `/${navlink.toLowerCase().replace(/\s+/g, "-")}`;
           const isActive = location.pathname === path;
           
           return (
