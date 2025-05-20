@@ -6,9 +6,10 @@ function HeaderLogo() {
 
   return (
     <button
-      onClick={() => nav("/v1/api/users/home")}
-      className="text-3xl font-extrabold bg-gradient-to-r from-blue-500 via-pink-500 to-blue-500 
-      text-transparent bg-clip-text cursor-pointer hover:scale-105 transition-transform duration-300"
+      onClick={() => nav("/home")}
+      className="text-4xl font-extrabold bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 
+      text-transparent bg-clip-text cursor-pointer transform hover:scale-105 transition-all duration-300 
+      tracking-tight drop-shadow-sm"
     >
       IPOConnect
     </button>
