@@ -21,4 +21,8 @@ export const fetchIposByStatus = (status) => API.get(`/ipo/by-status?status=${st
 // ---------- Blog APIs ------- //
 export const fetchAllBlogs = () => API.get("/blogs");
 
+// ------- SharkInvestor APIs ------- //
+export const fetchAllSharkInvestors = () => API.get("/shark-investors");
+export const fetchSharkInvestorByName = (sharkName) => API.get(`/shark-investors/${sharkName}`);
+
 export default API;
