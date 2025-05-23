@@ -1,17 +1,32 @@
-import React from 'react'
+import React from 'react';
 
 function FooterRight() {
   return (
-    <div className='flex flex-col gap-5 opacity-80'>
-      <p>Investment in securities markets are subject to market risks, read all the related documents carefully before investing as prescribed by SEBI. Issued in the interest of the investors.</p>
+    <div className="flex flex-col gap-6 text-sm text-gray-600 leading-relaxed max-w-4xl">
+      <p>
+        📢 <span className="font-medium">Investing in IPOs and stock markets</span> involves market risk.
+        Please read all scheme-related documents carefully before investing. IPOConnect is committed to
+        spreading financial literacy and providing publicly available data in an organized format.
+      </p>
 
-      <p>The users can write to hello@bluestock.in for any app, website related queries. Also you can send IT / Tech related feedback to cto@bluestock.in</p>
+      <p>
+        📬 For any questions or feedback related to the website or platform, feel free to reach 
+        out to us at{' '}
+        <span className="text-blue-600 underline">support@ipoconnect.in</span>. <br />
+        For technical issues or suggestions, contact our tech team directly at{' '}
+        <span className="text-blue-600 underline">tech@ipoconnect.in</span>.
+      </p>
 
-      <p>Disclaimer: We are not a SEBI registered research analyst company. We do not provide any kind of stock recommendations, buy/sell stock tips, or investment and trading advice. All the stock scripts shown in the Bluestock app, website, all social media handles are for educational purposes only.
-        Before making any investment in the financial market, it is advisable to consult with your financial advisor. Remember that stock markets are subject to market risks.</p>
-
+      <p>
+        ⚠️ <span className="font-semibold">Disclaimer:</span> IPOConnect is 
+        <span className="underline">not a SEBI-registered advisor</span>. 
+        We do not offer investment advice, stock tips, or buy/sell recommendations. <br />
+        All data and insights provided on this platform are for 
+        <span className="font-medium">educational and informational purposes</span>
+        only. Always consult a certified financial advisor before making any investment decisions.
+      </p>
     </div>
-  )
+  );
 }
 
-export default FooterRight
+export default FooterRight;
