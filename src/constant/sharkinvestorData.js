@@ -257,7 +257,6 @@ export const sharkInvestorsData = [
     twitter: "",
     website: "https://www.centralsquarefoundation.org/"
   }
-  
 
   // {
   //   name: "Harshil Mathur",

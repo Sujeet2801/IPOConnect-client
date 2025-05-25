@@ -832,11 +832,11 @@ export const footerData = [
       "Shark investors",
     ],
     links: [
-      "/v1/api/users/upcoming",
-      "/v1/api/users/ongoing",
-      "/v1/api/users/newlisted",
-      "/v1/api/users/sector",
-      "/v1/api/users/shark-investor",
+      "/upcoming",
+      "/ongoing",
+      "/newlisted",
+      "/sector",
+      "/shark-investor",
     ],
   },
   {
@@ -849,11 +849,11 @@ export const footerData = [
       "Disclaimers",
     ],
     links: [
-      "/v1/api/users/termsOfservice",
-      "/v1/api/users/privacypolicy",
-      "/v1/api/users/security",
-      "/v1/api/users/disclaimer",
-      "/v1/api/users/compliance",
+      "/termsOfservice",
+      "/privacypolicy",
+      "/security",
+      "/disclaimer",
+      "/compliance",
     ],
   },
   // {
@@ -863,7 +863,7 @@ export const footerData = [
   // },
   {
     title: "Social",
-    heading: ["Git Hub", "Twitter", "Portfolio", "Mail"],
+    heading: ["Github", "Twitter", "Portfolio", "Mail"],
     links: [
       "https://github.com/Sujeet2801/IPO-Connect",
       "https://x.com/Sujeetg2801",
