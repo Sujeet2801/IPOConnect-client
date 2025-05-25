@@ -1,60 +1,102 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-import { sectorDetailesData } from "../../constant/sectorDetailedData.js";
+import { fetchAllSectors } from "../../services/api.js";
 import { icons } from "../../constant/icons.js";
 import { FaIndustry } from "react-icons/fa";
 
 function SectorData() {
   const navigate = useNavigate();
+  const [sectors, setSectors] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetchAllSectors()
+      .then((response) => {
+        setSectors(response.data.data.existingSector);
+
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Failed to fetch sectors:", err);
+        setError("Failed to load sectors.");
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading)
+    return <div className="text-center mt-10">Loading sectors...</div>;
+  if (error)
+    return <div className="text-center mt-10 text-red-500">{error}</div>;
 
   return (
     <div className="p-6">
-      <h2 className=" text-3xl font-bold text-center mx-auto bg-gradient-to-r from-blue-400 via-pink-500 
-      to-blue-500 text-transparent bg-clip-text cursor-pointer hover:scale-105 
-      transition-transform duration-300 mb-5">Industry Sectors</h2>
+      {/* Heading and Tagline */}
+      <div className="text-center mb-8">
+        <h2
+          className="text-4xl font-bold text-transparent bg-gradient-to-r from-blue-400 
+        via-pink-500 to-blue-500 bg-clip-text cursor-pointer hover:scale-105 
+        transition-transform duration-300 mb-4"
+        >
+          Industry Sectors
+        </h2>
+        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          " Explore the diverse sectors of the market, their key players, and the
+          potential opportunities they offer. Click on any sector to dive deeper
+          into the details and gain valuable insights. "
+        </p>
+      </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {sectorDetailesData.map((sector, index) => {
+        {sectors.map((sector, index) => {
+
           const IconComponent = icons[sector.icon]?.icon;
-          const iconClass = icons[sector.icon]?.className || "text-gray-500 text-3xl";
+          
+          const iconClass =
+            icons[sector.icon]?.className || "text-gray-500 text-3xl";
 
           return (
-            <div key={index} className="p-6 rounded-lg shadow-md flex flex-col items-center text-center 
+            <div
+              key={index}
+              className="p-6 rounded-lg shadow-md flex flex-col items-center text-center 
               hover:shadow-xl transition duration-300
-              bg-gradient-to-b from-blue-300 to-white transform hover:scale-105">
+              bg-gradient-to-b from-blue-300 to-white transform hover:scale-105"
+            >
+              {/* <div>
+                {IconComponent ? (
+                  <IconComponent className={iconClass} />
+                ) : (
+                  <FaIndustry className="text-gray-400 text-3xl" />
+                )}
+              </div> */}
 
-              <div>
-                {IconComponent ? <IconComponent className={iconClass} /> : <FaIndustry
-                  className="text-gray-400 text-3xl" />}
-              </div>
-
-              <div className="text-lg font-semibold mt-2">{sector.title}</div>
-              <div className="text-gray-800 mt-3">{sector.desc}</div>
-              {/* <div className="mt-3 font-medium">{sector.listedCompany} Listed Companies</div> */}
+              <div className="text-lg font-semibold mt-2">{sector.sectorName}</div>
+              <div className="text-gray-800 mt-3">{sector.sectorDesc}</div>
 
               <div className="mt-3 font-medium text-blue-700 flex gap-8">
                 <div>
                   <p className=" text-black">Large</p>
-                  {sector.listedCompany.filter((ele) => ele.type === 'Large').length}
+                  {sector.marketCaps?.large?.companies?.length || 0}
                 </div>
 
                 <div>
                   <p className=" text-black">Mid</p>
-                  {sector.listedCompany.filter((ele) => ele.type === 'Mid').length}
+                  {sector.marketCaps?.mid?.companies?.length || 0}
                 </div>
 
                 <div>
                   <p className=" text-black">Small</p>
-                  {sector.listedCompany.filter((ele) => ele.type === 'Small').length}
+                  {sector.marketCaps?.small?.companies?.length || 0}
                 </div>
               </div>
-
               <button
                 className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md 
                 hover:bg-blue-700 transition duration-200"
                 onClick={() =>
-                  navigate(`/v1/api/users/sector/${sector.title.toLowerCase().replace(/\s+/g, "-")}`)}
+                  navigate(
+                    `/sector/${sector.sectorName.replace(/\s+/g, "-")}`
+                  )
+                }
               >
                 Details
               </button>
