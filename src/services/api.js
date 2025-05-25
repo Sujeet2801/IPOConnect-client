@@ -25,4 +25,7 @@ export const fetchAllBlogs = () => API.get("/blogs");
 export const fetchAllSharkInvestors = () => API.get("/shark-investors");
 export const fetchSharkInvestorByName = (sharkName) => API.get(`/shark-investors/${sharkName}`);
 
+// ------- Broker APIs ------- //
+export const fetchAllBrokers = () => API.get("/brokers");
+
 export default API;
