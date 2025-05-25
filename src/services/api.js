@@ -28,4 +28,9 @@ export const fetchSharkInvestorByName = (sharkName) => API.get(`/shark-investors
 // ------- Broker APIs ------- //
 export const fetchAllBrokers = () => API.get("/brokers");
 
+// ------- Sector APIs ------- //
+export const fetchAllSectors = () => API.get("/sectors");
+export const fetchSectorsByMarketCap = (type) => API.get(`/sectors/marketcaps/${type}`);
+export const fetchSectorByName = (sectorName) => API.get(`/sectors/${sectorName}`);
+
 export default API;
