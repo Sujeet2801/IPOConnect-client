@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchIposByStatus } from "../../services/api.js";
 import IPOCard from "../../utility/IPOCard.jsx";
 import { useAuth } from "../../hooks/useAuth.jsx";
+import RequireLoginMessage from "../../utility/RequireLoginMessage.jsx";
 
 function Upcoming_IPOs_Page() {
   const { user, loading: authLoading } = useAuth(); 
@@ -42,9 +43,7 @@ function Upcoming_IPOs_Page() {
 
   if (!user) {
     return (
-      <div className="text-center py-10 text-lg text-red-500 font-semibold">
-        Please log in to view upcoming IPOs.
-      </div>
+      <RequireLoginMessage page="All Upcoming IPOs"/>
     );
   }
 
