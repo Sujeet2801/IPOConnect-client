@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Single_Brokers from "./Single_Brokers";
 import { fetchAllBrokers, getCurrentUser } from "../../services/api.js";
+import RequireLoginMessage from "../../utility/RequireLoginMessage.jsx";
 
 function All_Brokers() {
   const [brokers, setBrokers] = useState([]);
@@ -39,7 +40,10 @@ function All_Brokers() {
     if (isLoggedIn) getBrokers();
   }, [isLoggedIn]);
 
-  if (!isLoggedIn) return null;
+  if (!isLoggedIn) 
+    return (
+      <RequireLoginMessage page="All Brokers"/>
+  )
 
   return (
     <div className="pt-8 px-4 sm:px-8 md:px-16 lg:px-32 bg-slate-100">

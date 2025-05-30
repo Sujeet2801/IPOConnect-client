@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { fetchAllBlogs, getCurrentUser } from "../../services/api.js";
+import RequireLoginMessage from "../../utility/RequireLoginMessage.jsx";
 
 const itemsPerPage = 9;
 
@@ -46,11 +47,9 @@ function BlogHome() {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentItems = blogs.slice(startIndex, startIndex + itemsPerPage);
 
-  if (user === null) {
+  if (!user) {
     return (
-      <div className="text-center mt-20 text-gray-600 text-xl">
-        Please log in to view the blog posts.
-      </div>
+      <RequireLoginMessage page="All Blogs"/>
     );
   }
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Single_Shark_Investor from './Single_Shark_Investor.jsx';
 import { fetchAllSharkInvestors, getCurrentUser } from '../../services/api.js';
+import RequireLoginMessage from '../../utility/RequireLoginMessage.jsx';
 
 function All_Shark_Investor() {
   const [investors, setInvestors] = useState([]);
@@ -47,7 +48,9 @@ function All_Shark_Investor() {
   }, [isLoggedIn]);
 
   if (!isLoggedIn) {
-    return null;
+    return (
+      <RequireLoginMessage page="Shark Investors"/>
+    )
   }
 
   return (
