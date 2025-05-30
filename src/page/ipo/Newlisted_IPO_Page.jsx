@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchIposByStatus } from "../../services/api.js";
 import IPOCard from "../../utility/IPOCard.jsx";
 import { useAuth } from "../../hooks/useAuth.jsx";
+import RequireLoginMessage from "../../utility/RequireLoginMessage.jsx";
 
 function Newlisted_IPO_Page() {
   const { user, loading: authLoading } = useAuth();
@@ -38,7 +39,9 @@ function Newlisted_IPO_Page() {
   }
 
   if (!user) {
-    return <div className="text-center py-10 text-lg text-red-500 font-semibold">Please log in to view listed IPOs.</div>;
+    return (
+      <RequireLoginMessage page="All Newlisted IPOs "/>
+    )
   }
 
   if (loading) {
@@ -48,7 +51,9 @@ function Newlisted_IPO_Page() {
   return (
     <div className="p-6 rounded-lg shadow-lg mx-16 border border-black mt-4">
       <div className="flex items-center mx-auto">
-        <h1 className="text-3xl font-bold mx-auto bg-gradient-to-r from-green-500 via-yellow-500 to-green-500 text-transparent bg-clip-text cursor-pointer hover:scale-105 transition-transform duration-300">
+        <h1 className="text-3xl font-bold mx-auto bg-gradient-to-r from-green-500 via-yellow-500
+        to-green-500 text-transparent bg-clip-text cursor-pointer hover:scale-105 transition-transform
+        duration-300">
           Recently Listed IPOs
         </h1>
       </div>
