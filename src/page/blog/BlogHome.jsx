@@ -82,18 +82,18 @@ function BlogHome() {
               >
                 <img
                   src={item.imageUrl}
-                  alt={item.heading}
+                  alt={item.title}
                   className="w-60 h-auto rounded-md bg-blue-400"
                 />
                 <p className="font-medium mt-2 mb-1 text-center text-[14px]">
-                  {item.heading}
+                  {item.title}
                 </p>
                 <div className="flex gap-5">
                   <p className="text-gray-600">{item.Date}</p>
                   <p className="text-gray-600">{item.Time}</p>
                 </div>
                 <a
-                  href={item.readMoreLink}
+                  href={item.externalLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-blue-500 mt-3 px-3 py-1 text-white rounded-md hover:bg-blue-600"
