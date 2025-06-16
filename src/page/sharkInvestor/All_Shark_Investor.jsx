@@ -1,40 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import Single_Shark_Investor from './Single_Shark_Investor.jsx';
-import { fetchAllSharkInvestors, getCurrentUser } from '../../services/api.js';
-import RequireLoginMessage from '../../utility/RequireLoginMessage.jsx';
+import { fetchAllSharkInvestors } from '../../services/api.js';
+import { useAuth } from '../../hooks/useAuth.jsx';
+import Loader from "../../utility/Loader.jsx";
 
 function All_Shark_Investor() {
+  const user = useAuth();
   const [investors, setInvestors] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        const { data } = await getCurrentUser();
-        
-        if (data?.data) {
-          setIsLoggedIn(true);
-        } else {
-          setIsLoggedIn(false);
-        }
-      } catch (err) {
-        setIsLoggedIn(false);
-      }
-    };
-
-    checkAuth();
-  }, []);
-
 
   useEffect(() => {
     const getInvestors = async () => {
       try {
-        setLoading(true);
         const { data } = await fetchAllSharkInvestors();        
         setInvestors(data?.data || []);
         setError('');
+        setLoading(false);
       } catch (err) {
         setError('Failed to load shark investors.');
       } finally {
@@ -42,16 +24,12 @@ function All_Shark_Investor() {
       }
     };
 
-    if (isLoggedIn) {
+    if (user) {
       getInvestors();
     }
-  }, [isLoggedIn]);
+  }, [user]);
 
-  if (!isLoggedIn) {
-    return (
-      <RequireLoginMessage page="Shark Investors"/>
-    )
-  }
+    if (loading) return <Loader message="Loading shark investors..." />;
 
   return (
     <div className="mt-5">
@@ -69,9 +47,7 @@ function All_Shark_Investor() {
         their strategic investments and expertise.
       </div>
 
-      {loading ? (
-        <div className="text-center text-gray-500">Loading investors...</div>
-      ) : error ? (
+      {error ? (
         <div className="text-center text-red-500">{error}</div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-5 mx-8 gap-5 justify-center 
