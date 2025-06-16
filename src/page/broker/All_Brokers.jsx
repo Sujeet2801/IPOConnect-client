@@ -1,27 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Single_Brokers from "./Single_Brokers";
-import { fetchAllBrokers, getCurrentUser } from "../../services/api.js";
-import RequireLoginMessage from "../../utility/RequireLoginMessage.jsx";
+import { fetchAllBrokers } from "../../services/api.js";
+import { useAuth } from "../../hooks/useAuth";
+import Loader from "../../utility/Loader";
 
 function All_Brokers() {
+  const { user } = useAuth();
   const [brokers, setBrokers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        const { data } = await getCurrentUser();
-        if (data?.data) {
-          setIsLoggedIn(true);
-        }
-      } catch (err) {
-        setIsLoggedIn(false);
-      }
-    };
-    checkAuth();
-  }, []);
 
   useEffect(() => {
     const getBrokers = async () => {
@@ -37,13 +24,11 @@ function All_Brokers() {
       }
     };
 
-    if (isLoggedIn) getBrokers();
-  }, [isLoggedIn]);
+    if (user) getBrokers();
+  }, [user]);
 
-  if (!isLoggedIn) 
-    return (
-      <RequireLoginMessage page="All Brokers"/>
-  )
+  if (loading) return <Loader message="Loading Brokers..." />;
+  if (error) return <p className="text-center text-red-500">{error}</p>;
 
   return (
     <div className="pt-8 px-4 sm:px-8 md:px-16 lg:px-32 bg-slate-100">
@@ -52,27 +37,21 @@ function All_Brokers() {
         Made to <span className="text-green-600">Trade</span>
       </h1>
 
-      {loading ? (
-        <p className="text-center text-gray-500">Loading brokers...</p>
-      ) : error ? (
-        <p className="text-center text-red-500">{error}</p>
-      ) : (
-        <div className="grid gap-5">
-          {brokers.map((data, index) => {
-            const rowBgColor =
-              index % 2 === 0 ? "bg-purple-100" : "bg-slate-200";
-            return (
-              <div
-                key={index}
-                className={`p-4 sm:p-6 rounded-xl shadow-md hover:shadow-lg
-                  transition duration-300 ${rowBgColor}`}
-              >
-                <Single_Brokers {...data} />
-              </div>
-            );
-          })}
-        </div>
-      )}
+      <div className="grid gap-5">
+        {brokers.map((data, index) => {
+          const rowBgColor =
+            index % 2 === 0 ? "bg-purple-100" : "bg-slate-200";
+          return (
+            <div
+              key={index}
+              className={`p-4 sm:p-6 rounded-xl shadow-md hover:shadow-lg
+                transition duration-300 ${rowBgColor}`}
+            >
+              <Single_Brokers {...data} />
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
