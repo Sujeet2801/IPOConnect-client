@@ -24,7 +24,7 @@ function Home() {
       </section>
 
       {/* Features Section */}
-      <div className="flex flex-col items-center justify-center bg-gray-50 py-12 px-4">
+      <div className="flex flex-col items-center justify-center bg-blue-100 py-12 px-4 rounded-lg">
         <h1 className="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-10">
           Features
         </h1>
@@ -79,7 +79,7 @@ function Home() {
       </div>
 
       <NewlyListedIPO />
-      <IPONewsAnalysis />
+      {/* <IPONewsAnalysis /> */}
       <FAQ />
     </div>
   );
