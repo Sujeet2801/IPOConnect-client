@@ -1,9 +1,7 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 import HeaderMain from "./components/header/HeaderMain";
 import Home from "./components/home/Home";
-import BlogHome from "./page/blog/BlogHome";
-import Sector from "./page/sector/Sector";
 
 import ContactMain from "./components/contact/ContactMain";
 import FooterMain from "./components/footer/FooterMain";
@@ -12,11 +10,15 @@ import Upcoming_IPOs_Page from "./page/ipo/Upcoming_IPOs_Page";
 import Ongoing_IPOs_Page from "./page/ipo/Ongoing_IPOs_Page";
 import Newlisted_IPO_Page from "./page/ipo/Newlisted_IPO_Page.jsx";
 
-import SectorDetailedPage from "./page/sector/SectorDetailedPage";
-import Shark_Detailed_Page from "./page/sharkInvestor/Shark_Detailed_Page";
-import All_Shark_Investor from "./page/sharkInvestor/All_Shark_Investor";
+import Blog from "./page/blog/Blog.jsx";
 
-import All_Brokers from "./page/broker/All_Brokers";
+import Sector from "./page/sector/Sector";
+import SectorDetailedPage from "./page/sector/SectorDetailedPage";
+
+import SharkInvestor from "./page/sharkInvestor/SharkInvestor.jsx";
+import Shark_Detailed_Page from "./page/sharkInvestor/Shark_Detailed_Page";
+
+import Brokers from "./page/broker/Brokers.jsx";
 
 import TermsOfService from "./components/legal/TermsOfService";
 import PrivacyPolicy from "./components/legal/PrivacyPolicy";
@@ -39,10 +41,11 @@ function App() {
           <ScrollToTop />
           <HeaderMain />
           <Routes>
-          <Route path="/" element={<Home />} />
+          
+          <Route path="/" element={<Navigate to="/home" replace />} />
           <Route path="/home" element={<Home />} />
 
-          <Route path="/blog" element={<BlogHome />} />
+          <Route path="/blog" element={<Blog />} />
 
           <Route path="/upcoming" element={<Upcoming_IPOs_Page />} />
           <Route path="/Ongoing" element={<Ongoing_IPOs_Page />} />
@@ -51,10 +54,10 @@ function App() {
           <Route path="/sector" element={<Sector />} />
           <Route path="/sector/:sectorName" element={<SectorDetailedPage />} />
 
-          <Route path="/shark-investor" element={<All_Shark_Investor />} />
+          <Route path="/shark-investor" element={<SharkInvestor />} />
           <Route path="/shark-investor/:sharkName" element={<Shark_Detailed_Page />} />
 
-          <Route path="/brokers" element={<All_Brokers />} />
+          <Route path="/brokers" element={<Brokers/>} />
 
           <Route path="/contact" element={<ContactMain />} />
 
