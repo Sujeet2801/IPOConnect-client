@@ -12,15 +12,15 @@ function FooterRight() {
       <p>
         📬 For any questions or feedback related to the website or platform, feel free to reach 
         out to us at{' '}
-        <span className="text-blue-600 underline">support@ipoconnect.in</span>. <br />
+        <span className="text-blue-600 underline">ipoconnect.in@gmail.com</span>. <br />
         For technical issues or suggestions, contact our tech team directly at{' '}
-        <span className="text-blue-600 underline">tech@ipoconnect.in</span>.
+        <span className="text-blue-600 underline">connect.ipoconnect@gmail.com</span>.
       </p>
 
       <p>
-        ⚠️ <span className="font-semibold">Disclaimer:</span> IPOConnect is 
+        ⚠️ <span className="font-semibold">Disclaimer:</span> IPOConnect is {" "}
         <span className="underline">not a SEBI-registered advisor</span>. 
-        We do not offer investment advice, stock tips, or buy/sell recommendations. <br />
+        We do not offer investment advice, stock tips, or buy/sell recommendations.
         All data and insights provided on this platform are for 
         <span className="font-medium">educational and informational purposes</span>
         only. Always consult a certified financial advisor before making any investment decisions.
