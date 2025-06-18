@@ -37,7 +37,7 @@ function Header() {
       )}
 
       {user ? (
-        <Button className="text-md cursor-pointer" onClick={handleLogout}>
+        <Button className="text-md cursor-pointer bg-red-500" onClick={handleLogout}>
             Logout
         </Button>
         ) : (
