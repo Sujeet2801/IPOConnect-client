@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchSectorByName } from "../../services/api.js";
+import RequireLoginMessage from "../../utility/RequireLoginMessage.jsx";
 
 function SectorDetailedPage() {
   let { sectorName } = useParams();
@@ -75,8 +76,9 @@ function SectorDetailedPage() {
 
   if (error || !sector) {
     return (
-      <div className="flex justify-center items-center h-screen px-4">
-        <p className="text-red-600 text-2xl font-semibold">{error || "Sector not found"}</p>
+      <div className="flex justify-center items-center px-4">
+        {/* <p className="text-red-600 text-2xl font-semibold">{error || "Sector not found"}</p> */}
+        <RequireLoginMessage page="Sector detailed page" />
       </div>
     );
   }

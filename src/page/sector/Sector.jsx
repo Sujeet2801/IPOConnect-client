@@ -8,11 +8,12 @@ function Sector() {
 
   return (
     <div>
-      {user ? (
+      <SectorData />
+      {/* {user ? (
         <SectorData />
       ) : (
         <RequireLoginMessage page="Sectors"/>
-      )}
+      )} */}
     </div>
   );
 }

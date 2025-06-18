@@ -16,6 +16,7 @@ function All_Brokers() {
         setLoading(true);
         const { data } = await fetchAllBrokers();
         setBrokers(data?.data?.allBrokers || []);
+        console.log(data.data);
         setError("");
       } catch (err) {
         setError("Failed to fetch brokers.");
@@ -24,8 +25,9 @@ function All_Brokers() {
       }
     };
 
-    if (user) getBrokers();
-  }, [user]);
+    getBrokers();
+    // if (user) getBrokers();
+  }, []);
 
   if (loading) return <Loader message="Loading Brokers..." />;
   if (error) return <p className="text-center text-red-500">{error}</p>;

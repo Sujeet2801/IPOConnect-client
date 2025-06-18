@@ -24,10 +24,10 @@ function All_Shark_Investor() {
       }
     };
 
-    if (user) {
-      getInvestors();
-    }
-  }, [user]);
+    getInvestors();
+    // if (user) {
+    // }
+  }, []);
 
     if (loading) return <Loader message="Loading shark investors..." />;
 

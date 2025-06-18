@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { fetchAllBlogs } from "../../services/api.js";
 import { useAuth } from "../../hooks/useAuth.jsx";
 import Loader from "../../utility/Loader.jsx";
-import RequireLoginMessage from "../../utility/RequireLoginMessage.jsx";
 
 const itemsPerPage = 9;
 
@@ -15,11 +14,11 @@ function BlogHome() {
 
   useEffect(() => {
     const getBlogs = async () => {
-      if (!user) return;
       try {
         setLoading(true);
         const { data } = await fetchAllBlogs();
-        setBlogs(data.data.allBlog);
+        setBlogs(data?.data?.allBlog);
+        console.log(data.data.allBlog);
         setError("");
       } catch (err) {
         setError("Failed to fetch blog data");
@@ -35,7 +34,6 @@ function BlogHome() {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentItems = blogs.slice(startIndex, startIndex + itemsPerPage);
 
-  if (!user) return <RequireLoginMessage page="Blogs" />;
   if (loading) return <Loader message="Loading blogs..." />;
   if (error) return <div className="text-center text-red-500 mt-10">{error}</div>;
 
@@ -60,22 +58,24 @@ function BlogHome() {
           <div
             key={item.id || index}
             className="p-6 rounded-lg shadow-md flex flex-col items-center text-center 
-            hover:shadow-xl transition duration-300 bg-gradient-to-b from-blue-100 to-white transform hover:scale-105"
+            hover:shadow-xl transition duration-300 bg-gradient-to-b from-blue-100 to-white 
+            transform hover:scale-105"
           >
             <img
               src={item.imageUrl}
               alt={item.title}
-              className="w-60 h-40 object-cover rounded-md bg-gray-200"
+              className="w-60 h-64 object-cover rounded-md bg-gray-200"
             />
             <div className="text-lg font-semibold mt-3 text-blue-700">{item.title}</div>
             <div className="text-gray-600 mt-2 text-sm">
-              <p>{item.Date} • {item.Time}</p>
+              <p>{new Date(item.publishDate).toISOString().split('T')[0]}</p>
             </div>
             <a
               href={item.externalLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-200"
+              className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 
+              transition duration-200"
             >
               Read More
             </a>

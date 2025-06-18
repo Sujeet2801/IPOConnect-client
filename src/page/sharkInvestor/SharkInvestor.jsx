@@ -7,11 +7,12 @@ function SharkInvestor() {
   const { user } = useAuth();
   return (
     <div>
-      {user ? (
+      <All_Shark_Investor />
+      {/* {user ? (
         <All_Shark_Investor />
       ) : (
         <RequireLoginMessage page="Shark Investors" />
-      )}
+      )} */}
     </div>
   );
 }

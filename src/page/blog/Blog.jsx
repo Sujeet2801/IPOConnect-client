@@ -6,7 +6,10 @@ import RequireLoginMessage from "../../utility/RequireLoginMessage";
 function Blog() {
   const { user } = useAuth();
 
-  return <div>{user ? <BlogHome /> : <RequireLoginMessage page="Blog" />}</div>;
+  return (<div>
+      <BlogHome />
+      {/* {user ? <BlogHome /> : <RequireLoginMessage page="Blog" />} */}
+    </div>)
 }
 
 export default Blog;
