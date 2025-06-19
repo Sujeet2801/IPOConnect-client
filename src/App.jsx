@@ -30,12 +30,13 @@ import ScrollToTop from "./utility/scrollToTop.js";
 import { AuthProvider } from "./hooks/useAuth.jsx";
 import Layout from "./components/Layout/Layout.jsx";
 import { ToastContainer } from "react-toastify";
+import RouteTitleUpdater from "./utility/RouteTitleUpdater.jsx";
 
 function App() {
   return (
     <Router>
       <div className="bg-gray-100">
-        
+        <RouteTitleUpdater />
         <ToastContainer />
         <AuthProvider>
           <ScrollToTop />
