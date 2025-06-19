@@ -12,8 +12,7 @@ function Single_Shark_Investor({ imageUrl, sharkName, netWorth }) {
       
       <div className="p-2">
         <p className="text-gray-700 mb-3 text-center text-xl font-semibold ">{sharkName}</p>
-        <p className="text-gray-700 mb-3 text-center text-xl font-semibold ">{netWorth} Crore</p>
-        {/* <p className="text-gray-700 text-sm mb-8">{description}</p> */}
+        <p className="text-gray-700 mb-3 text-center text-xl font-semibold ">{netWorth}</p>
         <a
           onClick={() => nav(`/shark-investor/${sharkName}`)}
           className="flex text-blue-500 font-semibold hover:bg-blue-200 transition items-center 

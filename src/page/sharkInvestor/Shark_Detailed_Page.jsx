@@ -54,14 +54,14 @@ const SharkDetailedPage = () => {
           >
             <img
               src={shark.imageUrl}
-              alt={shark.name}
+              alt={shark.sharkName}
               className="w-44 h-44 rounded-full object-cover border-4 border-purple-300 shadow-lg"
             />
             <div className="text-center md:text-left">
               <h1 className="text-4xl font-extrabold text-purple-800">
-                {shark.name}
+                {shark.sharkName}
               </h1>
-              <p className="text-sm text-gray-500 mt-2">{shark.description}</p>
+              <p className="text-md text-gray-500 mt-2">{shark.description}</p>
               <div className="mt-4 flex flex-col sm:flex-row gap-5 text-lg text-gray-700 font-medium">
                 <div className="bg-green-100 text-green-800 px-4 py-2 rounded-full">
                   💰 Net Worth:{" "}
@@ -83,13 +83,6 @@ const SharkDetailedPage = () => {
               bg="bg-pink-50"
             />
             <InfoCard
-              title="🚀 Stage Focus"
-              items={Object.keys(shark.stageFocus || {}).filter(
-                (stage) => shark.stageFocus[stage]
-              )}
-              bg="bg-blue-50"
-            />
-            <InfoCard
               title="💼 Notable Investments"
               items={shark.notableInvestments?.companies}
               bg="bg-yellow-50"
@@ -98,6 +91,13 @@ const SharkDetailedPage = () => {
               title="🏆 Achievements"
               items={shark.achievements?.achievement}
               bg="bg-green-50"
+            />
+            <InfoCard
+              title="🚀 Stage Focus"
+              items={Object.keys(shark.stageFocus || {}).filter(
+                (stage) => shark.stageFocus[stage]
+              )}
+              bg="bg-blue-50"
             />
           </div>
 
